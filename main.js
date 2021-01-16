@@ -1,7 +1,11 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Tray, ipcMain } = require('electron');
+
+
+let mainWindow = null;
+let tray = null;
 
 function createWindow () {
-  const win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -9,10 +13,18 @@ function createWindow () {
     }
   });
 
-  win.loadFile('index.html');
+  mainWindow.loadFile('index.html');
 }
 
-app.whenReady().then(createWindow)
+function createSysTray () {
+    tray = new Tray("./assets/darwinAssets/CoffeeTemplate@2x.png");
+}
+
+app.whenReady().then( () => {
+    createWindow();
+    createSysTray();
+});
+    
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -21,7 +33,12 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+    if( mainWindow === null ) {
+        createWindow();
+    }
 });
+
+ipcMain.on('re-render', () => {
+    // console.log("attempting refresh");
+    mainWindow.loadFile('index.html');
+})
