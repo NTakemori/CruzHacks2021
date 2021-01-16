@@ -6,24 +6,29 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 
-
-<body style="background: #e7a8a8;">
-
-    <h1>CruzHacks 2021</h1>
-
-
-    <div id="timer"></div>
-    <script src="./Timer.js"></script>
-    <div>
-        <button onclick="useTimer()">
-            Start the timer!
-        </button>
-    </div>
-
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
+    <button onclick="getAPI()">Click me</button>
 
 
     <script src='./watcher.js'></script>
 
 </body>
+
+<script>
+    
+    function getAPI(){
+    fetch('http://127.0.0.1:5000/api/med') 
+    .then(res => res.json()) 
+    .then(data => console.log(data['videoID']))
+    };
+
+</script>
+
 
 </html>
