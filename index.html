@@ -12,20 +12,14 @@
         Chrome <script>document.write(process.versions.chrome)</script>,
         and Electron <script>document.write(process.versions.electron)</script>.
     </p>
+    <script src='./main.js'></script>
     <button onclick="getAPI()">Click me</button>
-
+    <script></script>
     <script src='./watcher.js'></script>
 </body>
-
-<script>
-    
-    function getAPI(){
-    fetch('http://127.0.0.1:5000/api/med') 
-    .then(res => res.json()) 
-    .then(data => console.log(data['videoID']))
-    };
-
-</script>
-
-
+<body>
+    <div>
+        <A HREF="video.html">Video</A>
+    </div>
+</body>
 </html>
