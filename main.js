@@ -150,4 +150,4 @@ app.on('activate', () => {
 ipcMain.on('re-render', () => {
     // console.log("attempting refresh");
     mainWindow.loadFile('index.html');
-})
+});
