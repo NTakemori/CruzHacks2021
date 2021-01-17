@@ -1,8 +1,10 @@
-const { app, BrowserWindow, Tray, ipcMain } = require('electron');
+const { app, BrowserWindow, Tray, ipcMain, Menu, remote } = require('electron');
 
 
 let mainWindow = null;
+let timerWindow = null;
 let tray = null;
+
 
 async function getAPI(){
   const response = await fetch('http://127.0.0.1:5000/api/workout');
@@ -43,16 +45,91 @@ function createWindow () {
     }
   });
 
-  mainWindow.loadFile('index.html');
+let timer2020 = 30 * 60;
+let timerWater = 100;
+let timerExer = 2 * 60 * 60;
+
+const contextMenu = [
+    { label: `${timer2020.toString()}   20/20/20`, type: "normal", click() {stopTimer("eyes")}},
+    { label: "13:00   20/22/20", type: "normal", click() {stopTimer("eyes")}},
+    { label: "13:00   20/27/20", type: "normal", click() {stopTimer("eyes")}},
+    { type: "separator" },
+    { label: "Settings", click() {
+        //display settings window here
+    }},
+    { role: "quit", click() {
+        app.quit();
+    }}
+];
+
+// function createWindow () {
+//   mainWindow = new BrowserWindow({
+//     width: 800,
+//     height: 600,
+//     webPreferences: {
+//       nodeIntegration: true
+//     }
+//   });
+
+//   mainWindow.loadFile('index.html');
+// }
+
+function createTimerWindow () {
+    // var electronVibrancy = require('..');
+    timerWindow = new BrowserWindow({
+      width: 300,
+      height: 300,
+      webPreferences: {
+        nodeIntegration: true,
+      },
+      
+      vibrancy: "dark",
+    //   frame: false,
+    //   titleBarStyle: "customButtonsOnHover"
+    });
+    
+    // mainWindow.loadURL("http://browserify.org");
+    // electronVibrancy.SetVibrancy(timerWindow, 0);
+    
+    timerWindow.loadFile('timers.html');
+  }
+
+
+
+
+function startTimer() {
+    setInterval(() => {
+
+        timer2020--;
+        timerExer--;
+        timerWater--;
+        if( timerWater === 0 ) {
+            console.log("timer done")
+        }
+        contextMenu[0].label = `${timer2020.toString()}   20/20/20`;
+        const menu = Menu.buildFromTemplate(contextMenu);
+        tray.setContextMenu(menu);
+    }, 1000);
 }
+
+function stopTimer(timer) {
+    console.log(timer);
+}
+
+
+
 
 function createSysTray () {
     tray = new Tray("./assets/darwinAssets/CoffeeTemplate@2x.png");
+    const menu = Menu.buildFromTemplate(contextMenu);
+    tray.setContextMenu(menu);
 }
 
 app.whenReady().then( () => {
-    createWindow();
+    // createWindow();
+    createTimerWindow();
     createSysTray();
+    startTimer();
 });
     
 
@@ -64,7 +141,9 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
     if( mainWindow === null ) {
-        createWindow();
+        // createWindow(); 
+    } else if ( timerWindow === null ) {
+        createTimerWindow();
     }
 });
 
