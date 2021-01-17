@@ -1,15 +1,11 @@
-let minutes = [30*60, 60*60, 45*60, 20*60];
+let minutes = [30*60, 60*60, 45*60, 2];
 let minsResetter = [30*60, 60*60, 45*60, 20*60];
+let intervalTime = [60, 60, 45, 20];
 let isOn = [false, false, false, false];
-let firstClick = [true, true, true, true];
+let inInterval = [false, false, false, false];
 let timer = [null, null, null, null];
 
 let useTimer = (timerID = "timer", id) => {
-
-    if (firstClick[id] === true) {
-        minutes[id];
-        firstClick[id]=false;
-    }
     if (isOn[id]){
         isOn[id]=false;
         clearInterval(timer[id]);
@@ -30,13 +26,19 @@ function myFunction(timerID = "timer", id) {
         minutes[id]--;
     }
     else if (minutes[id] === 0) {
-        minutes[id] = minsResetter[id];
+        if (inInterval[id] === false){
+            inInterval[id] = true;
+            minutes[id] = intervalTime[id];
+        }
+        else {
+            inInterval[id] = true;
+            minutes[id] = minsResetter[id];
+        }
     }
 }
 
 let resetTimer = (timerID = "timer", id) => {
     isOn[id]=false;
-    firstClick[id]=true;
     minutes[id]=minsResetter[id];
     clearInterval(timer[id]);
     document.getElementById(timerID).innerHTML = null;
