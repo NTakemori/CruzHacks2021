@@ -32,7 +32,7 @@ svg {
     stroke-dasharray: 351;
     /* stroke-width: 5px; */
     /* this value is the pixel circumference of the circle */
-    stroke-dashoffset: 351;
+    /* stroke-dashoffset: 351; */
     transition: all 1s linear;
 }
 
