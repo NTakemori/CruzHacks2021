@@ -7,6 +7,12 @@ let isOn = [false, false, false, false];
 let inInterval = [false, false, false, false];
 let timer = [null, null, null, null];
 
+// const $ = require( "jquery" )( window );
+
+// $(document).ready(function(){
+//     alert("jquery in js file");
+// });
+
 let useTimer = (timerID = "timer", id) => {
     if (isOn[id]){
         isOn[id]=false;
@@ -15,7 +21,10 @@ let useTimer = (timerID = "timer", id) => {
     else{
         isOn[id]=true;
         timer[id] = window.setInterval(function() {
-            myFunction(timerID, id);
+            myFunction(timerID, id); 
+            let css = ".circle_animation" + id.toString();
+            console.log(css);
+            document.getElementsByClassName(css).css('stroke-dashoffset', 0);
         }, 1000); // every second;
     }
 }
@@ -23,10 +32,20 @@ let useTimer = (timerID = "timer", id) => {
 function myFunction(timerID = "timer", id) {
     let formattedMins = Math.floor(minutes[id]/60);
     let formattedSecs = Math.floor(minutes[id]%60);
-    document.getElementById(timerID).innerHTML = formattedMins + " " + formattedSecs;
+    let h = "H" + id.toString();
+    console.log("ID  ",  id);
+    let elements = document.getElementsByClassName("H0");
+    console.log("element found  ", elements[0]);
+    elements[0].innerHTML = formattedMins + " " + formattedSecs;
+    // for( let i = 0; i < elements.length(); i++ ){
+        
+    // };
     if (minutes[id] > 0 ) { // so it doesn't go to -1
         minutes[id]--;
-    }
+        document.getElementsByTa.text(formattedMins + ":" + formattedSecs);
+        let css = ".circle_animation" + id.toString();
+        document.getElementsByClassName(css).css('stroke-dashoffset', 351+((minsResetter[id] - minutes[id]+1)*(351/minsResetter[id])));               
+}
     else if (minutes[id] === 0) {
         if (inInterval[id] === false){
             inInterval[id] = true;
@@ -38,6 +57,8 @@ function myFunction(timerID = "timer", id) {
         }
     }
 }
+
+useTimer('timer', 0);
 
 let resetTimer = (timerID = "timer", id) => {
     isOn[id]=false;

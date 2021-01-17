@@ -62,17 +62,17 @@ const contextMenu = [
     }}
 ];
 
-// function createWindow () {
-//   mainWindow = new BrowserWindow({
-//     width: 800,
-//     height: 600,
-//     webPreferences: {
-//       nodeIntegration: true
-//     }
-//   });
+function createWindow () {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
-//   mainWindow.loadFile('index.html');
-// }
+  mainWindow.loadFile('index.html');
+}
 
 function createTimerWindow () {
     // var electronVibrancy = require('..');
@@ -126,7 +126,7 @@ function createSysTray () {
 }
 
 app.whenReady().then( () => {
-    // createWindow();
+    createWindow();
     createTimerWindow();
     createSysTray();
     startTimer();
@@ -141,7 +141,7 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
     if( mainWindow === null ) {
-        // createWindow(); 
+        createWindow(); 
     } else if ( timerWindow === null ) {
         createTimerWindow();
     }
