@@ -1,6 +1,8 @@
-let minutes = [30*60, 60*60, 45*60, 2];
-let minsResetter = [30*60, 60*60, 45*60, 20*60];
-let intervalTime = [60, 60, 45, 20];
+//meditation(every 2 hours for 5 min), stand up(every hour for 1 min),
+//look away(every 20 min for 20 sec), drink water(every 30 min for 30 sec)
+let minutes = [120*60, 60*60, 20*60, 30*60];
+let minsResetter = [120*60, 60*60, 20*60, 30*60];
+let intervalTime = [60*5, 60, 20, 30];
 let isOn = [false, false, false, false];
 let inInterval = [false, false, false, false];
 let timer = [null, null, null, null];
@@ -42,4 +44,31 @@ let resetTimer = (timerID = "timer", id) => {
     minutes[id]=minsResetter[id];
     clearInterval(timer[id]);
     document.getElementById(timerID).innerHTML = null;
+}
+
+let startAll = () => {
+    for (let i=0; i<4; i++){
+        isOn[i] = false;
+    }
+    useTimer('timer', 0);
+    useTimer('timer2', 1);
+    useTimer('timer3', 2);
+    useTimer('timer4', 3);
+}
+
+let stopAll = () => {
+    for (let i=0; i<4; i++){
+        isOn[i] = true;
+    }
+    useTimer('timer', 0);
+    useTimer('timer2', 1);
+    useTimer('timer3', 2);
+    useTimer('timer4', 3);
+}
+
+let resetAll = () => {
+    resetTimer('timer', 0);
+    resetTimer('timer2', 1);
+    resetTimer('timer3', 2);
+    resetTimer('timer4', 3);
 }
