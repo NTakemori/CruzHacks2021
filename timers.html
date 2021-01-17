@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html style="height: 100%;">
     <link rel="stylesheet" type="text/css" href="timers.css" media="screen"/>
 <head>
     <meta charset="UTF-8">
@@ -13,51 +13,51 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 
-<body >
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <div>
+<body class="container">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <div class="rowClocks">
         <div class="item">
-            <h2>0</h2>
+            <h2 class="H2">0</h2>
             <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
             <g>
             <title>Layer 1</title>
-            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            <circle id="circle" class="circle_animation1" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
             </g>
             </svg>
         </div>
         <div class="item">
-            <h2>0</h2>
+            <h2 class="H2">0</h2>
             <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
             <g>
             <title>Layer 1</title>
-            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
-            </g>
-            </svg>
-        </div>
-    </div>
-    <div>
-        <div class="item">
-            <h2>0</h2>
-            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
-            <g>
-            <title>Layer 1</title>
-            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
-            </g>
-            </svg>
-        </div>
-        <div class="item">
-            <h2>0</h2>
-            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
-            <g>
-            <title>Layer 1</title>
-            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            <circle id="circle" class="circle_animation2" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
             </g>
             </svg>
         </div>
     </div>
-
-    <script>
+    <div class="rowClocks">
+        <div class="item">
+            <h2 class="H2">0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation3" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+        <div class="item">
+            <h2 class="H2">0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation4" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+    </div>
+    <script src="./Timer.js">
+    </script>
+    <!-- <script>
         window.$ = window.jQuery = require('jquery');
         setTimeout(function() { 
             var time = 10; /* how long the timer will run (seconds) */
@@ -65,10 +65,10 @@
             var i = 1;
 
             /* Need initial run as interval hasn't yet occured... */
-            $('.circle_animation').css('stroke-dashoffset', initialOffset+(1*(351/time)));
+            $('.circle_animation').css('stroke-dashoffset', 0);
 
             var interval = setInterval(function() {
-                $('h2').text(i);
+                $('h2').text(time - i);
                 if (i === time) {  	
                     clearInterval(interval);
                     return;
@@ -80,7 +80,7 @@
             }, 1000);
  
         }, 0)
-    </script>
+    </script> -->
 
 </body>
 

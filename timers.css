@@ -1,6 +1,15 @@
-/* .container {
-    background-color: rgba(255, 255, 255, 0.021);
-} */
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rowClocks {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .item {
     position: relative;
@@ -19,7 +28,31 @@ svg {
     transform: rotate(-90deg);
 }
 
-.circle_animation {
+.circle_animation1 {
+    stroke-dasharray: 351;
+    /* stroke-width: 5px; */
+    /* this value is the pixel circumference of the circle */
+    stroke-dashoffset: 351;
+    transition: all 1s linear;
+}
+
+.circle_animation2 {
+    stroke-dasharray: 351;
+    /* stroke-width: 5px; */
+    /* this value is the pixel circumference of the circle */
+    stroke-dashoffset: 351;
+    transition: all 1s linear;
+}
+
+.circle_animation3 {
+    stroke-dasharray: 351;
+    /* stroke-width: 5px; */
+    /* this value is the pixel circumference of the circle */
+    stroke-dashoffset: 351;
+    transition: all 1s linear;
+}
+
+.circle_animation4 {
     stroke-dasharray: 351;
     /* stroke-width: 5px; */
     /* this value is the pixel circumference of the circle */
