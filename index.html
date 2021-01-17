@@ -11,14 +11,24 @@
 
     <h1>CruzHacks 2021</h1>
 
+    <script src="./Timer.js"></script>
 
     <div id="timer"></div>
-    <script src="./Timer.js"></script>
     <div>
-        <button onclick="useTimer(30)">
+        <button onclick="useTimer(30, 'timer')">
             Start/stop
         </button>
-        <button onclick="resetTimer()">
+        <button onclick="resetTimer('timer')">
+            Reset
+        </button>
+    </div>
+
+    <div id="timer2"></div>
+    <div>
+        <button onclick="useTimer(30, 'timer2')">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer2')">
             Reset
         </button>
     </div>

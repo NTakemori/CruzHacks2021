@@ -25,7 +25,7 @@ function createWindow () {
 
 function startTimer() {
     setInterval(() => {
-        console.log(timer2020);
+        //console.log(timer2020);
         timer2020--;
         timerExer--;
         timerWater--;
