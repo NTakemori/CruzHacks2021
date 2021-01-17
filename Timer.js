@@ -41,5 +41,5 @@ let resetTimer = (timerID = "timer", id) => {
     isOn[id]=false;
     minutes[id]=minsResetter[id];
     clearInterval(timer[id]);
-    document.getElementById(timerID).innerHTML = null;
+    document.getElementById(timerID).innerHTML = " 6";
 }
