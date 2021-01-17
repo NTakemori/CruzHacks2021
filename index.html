@@ -6,8 +6,16 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 
+<body style="background: white;">
+    <h1>Hello World!</h1>
+    <p>
+        We are using node <script>document.write(process.versions.node)</script>,
+        Chrome <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+    </p>
+    <button onclick="getAPI()">Click me</button>
 
-<body style="background: #e7a8a8;">
+
 
     <h1>CruzHacks 2021</h1>
 
@@ -65,8 +73,8 @@
         </button>
     </div>
 
-    <script src='./watcher.js'></script>
 
-</body>
+</script>
+
 
 </html>
