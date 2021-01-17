@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html >
+    <link rel="stylesheet" type="text/css" href="timers.css" media="screen"/>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .main-window {
+            border-radius: 10px;
+        }
+    </style>
+
+    <title>Timers</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+
+<body >
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <div>
+        <div class="item">
+            <h2>0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+        <div class="item">
+            <h2>0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+    </div>
+    <div>
+        <div class="item">
+            <h2>0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+        <div class="item">
+            <h2>0</h2>
+            <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+            <g>
+            <title>Layer 1</title>
+            <circle id="circle" class="circle_animation" r="56" cy="60" cx="60" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+            </g>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        window.$ = window.jQuery = require('jquery');
+        setTimeout(function() { 
+            var time = 10; /* how long the timer will run (seconds) */
+            var initialOffset = '351';
+            var i = 10
+
+            /* Need initial run as interval hasn't yet occured... */
+            $('.circle_animation').css('stroke-dashoffset', 35);
+
+            var interval = setInterval(function() {
+                $('h2').text(i);
+                if (i < 0) {  	
+                    clearInterval(interval);
+                    return;
+                }
+                $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
+                i--;  
+            }, 1000);
+ 
+        }, 0)
+    </script>
+
+</body>
+
+</html>
