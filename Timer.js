@@ -1,3 +1,4 @@
+
 //meditation(every 2 hours for 5 min), stand up(every hour for 1 min),
 //look away(every 20 min for 20 sec), drink water(every 30 min for 30 sec)
 // let minutes = [120*60, 60*60, 20*60, 30*60];
