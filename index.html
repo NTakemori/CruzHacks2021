@@ -16,17 +16,63 @@
     <button onclick="getAPI()">Click me</button>
 
 
-    <script src='./watcher.js'></script>
 
-</body>
+    <h1>CruzHacks 2021</h1>
 
-<script>
-    
-    function getAPI(){
-    fetch('http://127.0.0.1:5000/api/med') 
-    .then(res => res.json()) 
-    .then(data => console.log(data['videoID']))
-    };
+    <script src="./Timer.js"></script>
+
+    <div id="timer"></div>
+    <div>
+        <button onclick="useTimer('timer', 0)">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer', 0)">
+            Reset
+        </button>
+    </div>
+
+    <div id="timer2"></div>
+    <div>
+        <button onclick="useTimer('timer2', 1)">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer2', 1)">
+            Reset
+        </button>
+    </div>
+
+    <div id="timer3"></div>
+    <div>
+        <button onclick="useTimer('timer3', 2)">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer3', 2)">
+            Reset
+        </button>
+    </div>
+
+    <div id="timer4"></div>
+    <div>
+        <button onclick="useTimer('timer4', 3)">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer4', 3)">
+            Reset
+        </button>
+    </div>
+
+    <div>
+        <button onclick="startAll()">
+            Start all
+        </button>
+        <button onclick="stopAll()">
+            Stop all
+        </button>
+        <button onclick="resetAll()">
+            Reset all
+        </button>
+    </div>
+
 
 </script>
 

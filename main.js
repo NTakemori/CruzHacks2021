@@ -59,7 +59,7 @@ function createTimerWindow () {
 
 function startTimer() {
     setInterval(() => {
-        // console.log(timer2020);
+
         timer2020--;
         timerExer--;
         timerWater--;
