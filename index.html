@@ -15,20 +15,30 @@
 
     <div id="timer"></div>
     <div>
-        <button onclick="Timers[0].useTimer()">
+        <button onclick="useTimer('timer', 0)">
             Start/stop
         </button>
-        <button onclick="Timers[0].resetTimer()">
+        <button onclick="resetTimer('timer', 0)">
             Reset
         </button>
     </div>
 
     <div id="timer2"></div>
     <div>
-        <button onclick="Timers[1].useTimer()">
+        <button onclick="useTimer('timer2', 1)">
             Start/stop
         </button>
-        <button onclick="Timers[1].resetTimer()">
+        <button onclick="resetTimer('timer', 1)">
+            Reset
+        </button>
+    </div>
+
+    <div id="timer3"></div>
+    <div>
+        <button onclick="useTimer('timer3', 2)">
+            Start/stop
+        </button>
+        <button onclick="resetTimer('timer3', 2)">
             Reset
         </button>
     </div>
