@@ -60,21 +60,23 @@
     <script>
         window.$ = window.jQuery = require('jquery');
         setTimeout(function() { 
-            var time = 10; /* how long the timer will run (seconds) */
+            var time = 500; /* how long the timer will run (seconds) */
             var initialOffset = '351';
-            var i = 10
+            var i = 1;
 
             /* Need initial run as interval hasn't yet occured... */
-            $('.circle_animation').css('stroke-dashoffset', 35);
+            $('.circle_animation').css('stroke-dashoffset', initialOffset-((i)*(initialOffset/time)));
 
             var interval = setInterval(function() {
                 $('h2').text(i);
-                if (i < 0) {  	
+                if (i === time) {  	
                     clearInterval(interval);
                     return;
                 }
-                $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));
-                i--;  
+
+                    $('.circle_animation').css('stroke-dashoffset', initialOffset-((i+1)*(initialOffset/time)));               
+                
+                i++;  
             }, 1000);
  
         }, 0)
