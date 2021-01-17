@@ -26,8 +26,8 @@ let useTimer = (timerID = "timer", id) => {
             myFunction(timerID, id); 
             let css = ".circle_animation" + id.toString();
             // console.log("hello");
-            if( document.getElementsByClassName("circle_animation1")[0] )
-                document.getElementsByClassName("circle_animation1")[0].style.strokeDashoffset = 0; 
+            // if( document.getElementsByClassName("circle_animation1")[0] )
+            //     document.getElementsByClassName("circle_animation1")[0].style.strokeDashoffset = 0; 
         }, 1000); // every second;
     }
 }
@@ -37,11 +37,9 @@ function myFunction(timerID = "timer", id) {
     let formattedSecs = Math.floor(minutes[id]%60);
     let h = "head" + id.toString();
     let timePassed = minsResetter[id] - minutes[id];
-    let dist = 351-((timePassed+1)*(351/minsResetter[id]));
+    let dist = ((timePassed+1)*(351/minsResetter[id]));
     if (document.getElementsByClassName("yeet")[0]) {
-        // console.log("btoh")
         document.getElementsByClassName("yeet")[0].innerHTML = formattedMins + ":" + formattedSecs;
-        
     }
     if (document.getElementsByClassName("circle_animation1")) {
         // console.log(timePassed);
